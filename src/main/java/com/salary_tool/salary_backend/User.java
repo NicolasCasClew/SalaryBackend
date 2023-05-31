@@ -1,16 +1,20 @@
-package com.test1.api_test;
+package com.salary_tool.salary_backend;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
-@Table(name= "salary_data")
+@Table(name= "test_table1")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
             name="id",
             nullable=false
     )
-    private  String id;
+    private UUID id;
     @Column(
             name="name",
             nullable=false
@@ -22,8 +26,8 @@ public class User {
     )
     private String mail;
 
-    public User(String id, String name, String mail) {
-        this.id = id;
+    public User(String name, String mail) {
+        //this.id = id;
         this.name = name;
         this.mail = mail;
     }
@@ -31,11 +35,11 @@ public class User {
     public User() {
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
